@@ -40,7 +40,7 @@ function PrepareCanvas() {
 
     // Depois do canvas adicionar um pequeno texto a dizer
     // que o canvas se encontraacima do texto
-    canvas.insertAdjacentText('afterend', 'O canvas encontra-se acima deste texto!');
+    canvas.insertAdjacentText('afterend', 'O canvas encontra-se acima deste texto! - João Costa al59259');
 }
 
 // Função responsável por preparar os shaders
