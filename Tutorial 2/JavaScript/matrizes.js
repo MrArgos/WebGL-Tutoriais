@@ -33,7 +33,7 @@ function CriarMatrizEscala(x,y,z) {
 /**
  * @param {float} angulo ângulo em graus para rodar no eixo X
  */
-function CriarMatrizRotacaoY(angulo) {
+function CriarMatrizRotacaoX(angulo) {
     // Seno e cosseno são calculados em radianos, logo é necessário converter de graus para radianos
     var radianos = angulo * Math.PI/180;
     
@@ -64,7 +64,7 @@ function CriarMatrizRotacaoY(angulo) {
 /**
  * @param {float} angulo ângulo em graus para rodar no eixo Z
  */
-function CriarMatrizRotacaoZ(params) {
+function CriarMatrizRotacaoZ(angulo) {
     var radianos = angulo * Math.PI/180;
     
     // Matriz final de rotaçao no eixo Z

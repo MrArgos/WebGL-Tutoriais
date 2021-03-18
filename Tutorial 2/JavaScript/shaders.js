@@ -4,7 +4,6 @@ var codigoVertexShader = [
     'attribute vec3 vertexColor;',
     'varying vec3 fragColor;',
 
-    // Matriz de 4x4 que indica quais as transformações a ser feitas em cada vertice
     'uniform mat4 transformationMatrix;',
 
     'void main(){',
