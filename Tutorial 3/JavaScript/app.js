@@ -130,15 +130,6 @@ function loop()
     finalMatrix = math.multiply(CriarMatrizEscala(0.25,0.25,0.25), finalMatrix);
     finalMatrix = math.multiply(CriarMatrizRotacaoY(rotationAngle), finalMatrix);
 
-    /* Desafios Tutorial 2
-    // Desafio 1
-    finalMatrix = math.multiply(CriarMatrizEscala(3,3,3), finalMatrix);
-    // Desafio 2
-    finalMatrix = math.multiply(CriarMatrizTranslacao(-0.25,-0.75,0), finalMatrix);
-    // Desafio 3
-    finalMatrix = math.multiply(CriarMatrizRotacaoX(rotationAngle), finalMatrix);
-    */
-
     // Foi adicionada esta transformação para podermos mexer na posição do objeto no eixo do Z
     finalMatrix = math.multiply(CriarMatrizTranslacao(0,0,1), finalMatrix);
 
