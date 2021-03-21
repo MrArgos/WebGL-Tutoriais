@@ -5,11 +5,11 @@
  * @param {float[3]} forwardVector Array frente da câmara
  * @param {float[3]} centerPoint Array com a posição da câmara em coordenadas mundo
  */
-function MatrizVisualização(rightVector, upVector, forwardVector, centerPoint) {
+function MatrizVisualizacao(rightVector, upVector, forwardVector, centerPoint) {
     return [
-        [rightVector[0],    rightVector[1],     rightVector[2],     math.multiply(rightVector,centerPoint)],
-        [upVector[0],       upVector[1],        upVector[2],        math.multiply(upVector,centerPoint)],
-        [forwardVector[0],  forwardVector[1],   forwardVector[2],   math.multiply(forwardVector,centerPoint)],
+        [rightVector[0],    rightVector[1],     rightVector[2],     -math.multiply(rightVector,centerPoint)],
+        [upVector[0],       upVector[1],        upVector[2],        -math.multiply(upVector,centerPoint)],
+        [forwardVector[0],  forwardVector[1],   forwardVector[2],   -math.multiply(forwardVector,centerPoint)],
         [0,                 0,                  0,                  1]
     ];
 }
@@ -25,7 +25,7 @@ function MatrizOrtografica(width, height, nearPlane, farPlane) {
     var matrizOrtografica = [
         [1/width,   0,          0,                              0],
         [0,         1/height,   0,                              0],
-        [0,         0,          1/((farPlane/2)-nearPlane),     nearPlane/((farPlane/2)-nearPlane)],
+        [0,         0,          1/((farPlane/2)-nearPlane),     -nearPlane/((farPlane/2)-nearPlane)],
         [0,         0,          0,                              1]
     ];
 

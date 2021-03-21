@@ -151,7 +151,7 @@ function loop()
        a câmara no x=0, y=0 e z=0 do mundo. 
        Mais uma vez, é necessário converter o array de 2 dimensões para um array de 1 dimensão.
     */
-    var visualizationMatrix = MatrizVisualização([1,0,0],[0,1,0],[0,0,1],[0,0,0]);
+    var visualizationMatrix = MatrizVisualizacao([1,0,0],[0,1,0],[0,0,1],[0,0,0]);
     var newVisualizationMatrix = [];
     for (i = 0; i < visualizationMatrix.length; i++) {
         newVisualizationMatrix = newVisualizationMatrix.concat(visualizationMatrix[i]);
@@ -161,7 +161,7 @@ function loop()
        camara de 4 unidades, altura 3 unidades, plano anterior de 0.1 unidades e plano posterior de 100 unidades. 
        Mais uma vez, é necessário converter o array de 2 dimensões para um array de 1 dimensão.
     */
-    var projectionMatrix = MatrizPerspetiva([10,4,3,0.1,100]);
+    var projectionMatrix = MatrizPerspetiva(10,4,3,0.1,100);
     var newProjectionMatrix = [];
     for (i = 0; i < projectionMatrix.length; i++) {
         newProjectionMatrix = newProjectionMatrix.concat(projectionMatrix[i]);
