@@ -1,0 +1,11 @@
+Resposta aos Desafios:
+
+Desafio 1: Adicionar a linha de código seguinte depois da última transformação, 
+antes de convertermos para um array de uma dimensão.
+    finalMatrix = math.multiply(CriarMatrizEscala(3,3,3), finalMatrix);
+
+Desafio 2: Adicionar depois do códiogo do desafio anterior
+    finalMatrix = math.multiply(CriarMatrizTranslacao(-0.25,-0.75,0), finalMatrix);
+
+Desafio 3: Adicionar depois do códiogo do desafio anterior
+    finalMatrix = math.multiply(CriarMatrizRotacaoX(rotationAngle), finalMatrix);
