@@ -17,7 +17,7 @@ function PrepareCanvas() {
     GL.clearColor(0.65,0.65,0.65,1);
     GL.clear(GL.DEPTH_BUFFER_BIT | GL.COLOR_BUFFER_BIT);
     document.body.appendChild(canvas);
-    canvas.insertAdjacentText('afterend', 'O canvas encontra-se acima deste texto!');
+    canvas.insertAdjacentText('afterend', 'O canvas encontra-se acima deste texto! - João Costa al59259');
 }
 
 function PrepareShaders() {
