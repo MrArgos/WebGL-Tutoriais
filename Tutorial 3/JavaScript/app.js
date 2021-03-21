@@ -133,6 +133,9 @@ function loop()
     // Foi adicionada esta transformação para podermos mexer na posição do objeto no eixo do Z
     finalMatrix = math.multiply(CriarMatrizTranslacao(0,0,1), finalMatrix);
 
+    //finalMatrix = math.multiply(CriarMatrizTranslacao(0,0,1), finalMatrix); // Desafio
+
+
     var newarray= [];
     for (let i = 0; i < finalMatrix.length; i++) {
         newarray = newarray.concat(finalMatrix[i]);
@@ -153,6 +156,8 @@ function loop()
        Mais uma vez, é necessário converter o array de 2 dimensões para um array de 1 dimensão.
     */
     var projectionMatrix = MatrizPerspetiva(10,4,3,0.1,100);
+    //var projectionMatrix = MatrizOrtografica(4,3,0.1,100);  // Desafio
+    
     var newProjectionMatrix = [];
     for (i = 0; i < projectionMatrix.length; i++) {
         newProjectionMatrix = newProjectionMatrix.concat(projectionMatrix[i]);
