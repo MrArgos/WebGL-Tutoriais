@@ -5,10 +5,14 @@ var codigoVertexShader = [
     'varying vec3 fragColor;',
 
     'uniform mat4 transformationMatrix;',
+    'uniform mat4 visualizationMatrix;',    // Matriz de Visualização
+    'uniform mat4 projectionMatrix;',       // Matriz de Projeção
+    'uniform mat4 viewportMatrix;',         // Matriz de Viewport
 
     'void main(){',
     '   fragColor = vertexColor;',
-    '   gl_Position = vec4(vertexPosition, 1.0) * transformationMatrix;',
+    // Depois da transformação geométrica é necessário multiplicar pelas matrizes de visualização, projeção e viewport
+    '   gl_Position = vec4(vertexPosition, 1.0) * transformationMatrix * visualizationMatrix * projectionMatrix * viewportMatrix;',
     '}'
 ].join('\n');
 
