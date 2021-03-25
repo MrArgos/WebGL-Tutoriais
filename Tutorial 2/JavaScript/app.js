@@ -130,7 +130,7 @@ function loop()
     // Desafio 3
     finalMatrix = math.multiply(CriarMatrizRotacaoX(rotationAngle), finalMatrix);
     /*
-        finalMatrix = math.multiply(CriarMatrizTranslacao(0.25,0.75,0), finalMatrix);
+    finalMatrix = math.multiply(CriarMatrizTranslacao(0.25,0.75,0), finalMatrix);
     finalMatrix = math.multiply(CriarMatrizRotacaoX(rotationAngle), finalMatrix);
     finalMatrix = math.multiply(CriarMatrizTranslacao(-0.25,-0.25,0), finalMatrix);
     */
