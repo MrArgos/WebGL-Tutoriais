@@ -20,7 +20,7 @@ function PrepareCanvas() {
     GL.clearColor(0.65,0.65,0.65,1);
     GL.clear(GL.DEPTH_BUFFER_BIT | GL.COLOR_BUFFER_BIT);
     document.body.appendChild(canvas);
-    canvas.insertAdjacentText('afterend', 'O canvas encontra-se acima deste texto! - João Costa al59259');
+    canvas.insertAdjacentText('afterend', 'O canvas encontra-se acima deste texto!');
 }
 
 function PrepareShaders() {
@@ -133,7 +133,7 @@ function loop()
     // Foi adicionada esta transformação para podermos mexer na posição do objeto no eixo do Z
     finalMatrix = math.multiply(CriarMatrizTranslacao(0,0,1), finalMatrix);
 
-    //finalMatrix = math.multiply(CriarMatrizTranslacao(0,0,1), finalMatrix); // Desafio
+    //finalMatrix = math.multiply(CriarMatrizTranslacao(0,0,19), finalMatrix); // Desafio
 
 
     var newarray= [];
@@ -155,6 +155,7 @@ function loop()
        camara de 4 unidades, altura 3 unidades, plano anterior de 0.1 unidades e plano posterior de 100 unidades. 
        Mais uma vez, é necessário converter o array de 2 dimensões para um array de 1 dimensão.
     */
+
     var projectionMatrix = MatrizPerspetiva(10,4,3,0.1,100);
     //var projectionMatrix = MatrizOrtografica(4,3,0.1,100);  // Desafio
     

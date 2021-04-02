@@ -1,0 +1,10 @@
+Desafio 1
+    Ao alterar a matriz de translação de (0,0,1) para (0,0,19) estamos a efetuar uma translação no eixo do Z, isto é,
+    a afastar o triângulo da câmara. Como estamos a utilizar uma câmara em perspetiva e esta nos dá o efeito de profundidade,
+    o triângulo parece muito mais pequeno, pois está mais distante.
+
+Desafio 2
+    Aqui voltamos a alterar a matriz de translação para (0,0,1), voltando a pôr o triângulo mais próximo
+    da câmara, mas como alteramos a câmara de uma câmara em perspetiva para uma câmara ortográfica, o triângulo continua pequeno.
+    Isto acontece porque a câmara ortográfica não altera a dimensão com que visualizamos o triângulo com base na sua distância
+    da câmara, mas sim dos parâmetros da câmara (comprimento, altura, plano de corte anterior e posterior).
