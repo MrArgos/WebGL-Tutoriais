@@ -71,21 +71,23 @@ function PrepareTriangleData() {
     vertexPosition = [
         //  X       Y       Z       R       G       B
         
+        // Desafio 2 - mudar todos os X de 1 para 2 (aumentando o comprimento)
+
         // Frente
             0,      0,      0,      0,      0,      0,
             0,      1,      0,      0,      1,      0,
-            1,      1,      0,      1,      1,      0,
-            1,      0,      0,      1,      0,      0,
+            2,      1,      0,      1,      1,      0,
+            2,      0,      0,      1,      0,      0,
 
         // Direita
-            1,      0,      0,      1,      0,      0,
-            1,      1,      0,      1,      1,      0,
-            1,      1,      1,      1,      1,      1,
-            1,      0,      1,      1,      0,      1,
+            2,      0,      0,      1,      0,      0,
+            2,      1,      0,      1,      1,      0,
+            2,      1,      1,      1,      1,      1,
+            2,      0,      1,      1,      0,      1,
 
         // Trás
-            1,      0,      1,      1,      0,      1,
-            1,      1,      1,      1,      1,      1,
+            2,      0,      1,      1,      0,      1,
+            2,      1,      1,      1,      1,      1,
             0,      1,      1,      0,      1,      1,
             0,      0,      1,      0,      0,      1,
 
@@ -98,12 +100,12 @@ function PrepareTriangleData() {
         // Cima
             0,      1,      0,      0,      1,      0,
             0,      1,      1,      0,      1,      1,
-            1,      1,      1,      1,      1,      1,
-            1,      1,      0,      1,      1,      0,
+            2,      1,      1,      1,      1,      1,
+            2,      1,      0,      1,      1,      0,
 
         // Baixo
-            1,      0,      0,      1,      0,      0,
-            1,      0,      1,      1,      0,      1,
+            2,      0,      0,      1,      0,      0,
+            2,      0,      1,      1,      0,      1,
             0,      0,      1,      0,      0,      1,
             0,      0,      0,      0,      0,      0,
     ];
@@ -198,10 +200,19 @@ function loop()
         [0,0,0,1]
     ];
 
-    //finalMatrix = math.multiply(CriarMatrizTranslacao(0.5,0.5,0), finalMatrix);
     finalMatrix = math.multiply(CriarMatrizEscala(0.25,0.25,0.25), finalMatrix);
     finalMatrix = math.multiply(CriarMatrizRotacaoY(rotationAngle), finalMatrix);
+    
+    // Desafio 4 (rotações nos eixos Z e X)
+    finalMatrix = math.multiply(CriarMatrizRotacaoZ(rotationAngle), finalMatrix);
+    finalMatrix = math.multiply(CriarMatrizRotacaoX(rotationAngle), finalMatrix);
+
     finalMatrix = math.multiply(CriarMatrizTranslacao(0,0,1), finalMatrix);
+    
+    // Desafio 1 e 3 (Translação Y de -0.1 para fazer descer a figura, e translação Z de 1 para afastar
+    // a figura e consegurimos ver o paralelepípedo completo)
+    finalMatrix = math.multiply(CriarMatrizTranslacao(0,-0.1,1), finalMatrix);
+    
 
     var newarray= [];
     for (let i = 0; i < finalMatrix.length; i++) {
