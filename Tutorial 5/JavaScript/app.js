@@ -19,6 +19,9 @@ var gpuIndexBuffer = GL.createBuffer();
 // guardar na memoria da GPU a textura a ser utilizada
 var boxTexture = GL.createTexture();
 
+// Desafio 1 - Adicionar uma variável para guardar a textura 
+var signTexture = GL.createTexture();
+
 function PrepareCanvas() {
     
     GL.clearColor(0.65,0.65,0.65,1);
@@ -68,30 +71,33 @@ function PrepareProgram() {
 
 function PrepareTriangleData() {
     vertexPosition = [
+
+        // Desafio 2 - Alterar os valores de U e V para atribuir a cada face a textura certa
+
         //  X       Y       Z       U       V
         // Frente
-            0,      0,      0,      0,      0,
-            0,      1,      0,      0,      1,
-            1,      1,      0,      1,      1,
-            1,      0,      0,      1,      0,
+            0,      0,      0,      0,       0.5,
+            0,      1,      0,      0,       0,
+            1,      1,      0,      0.5,     0,
+            1,      0,      0,      0.5,     0.5,
 
         // Direita
-            1,      0,      0,      0,      0,
-            1,      1,      0,      1,      0,
-            1,      1,      1,      1,      1,
-            1,      0,      1,      0,      1,
+            1,      0,      0,      0,       1,
+            1,      1,      0,      0,       0.5,
+            1,      1,      1,      0.5,     0.5,
+            1,      0,      1,      0.5,     1,
 
         // Trás
-            1,      0,      1,      1,      0,
-            1,      1,      1,      1,      1,
-            0,      1,      1,      0,      1,
-            0,      0,      1,      0,      0,
+            1,      0,      1,      0.5,     0.5,
+            1,      1,      1,      0.5,     0,
+            0,      1,      1,      1,       0,
+            0,      0,      1,      1,       0.5,
 
         // Esquerda
-            0,      0,      1,      0,      1,
-            0,      1,      1,      1,      1,
-            0,      1,      0,      1,      0,
-            0,      0,      0,      0,      0,
+            0,      0,      1,      0.5,     1,
+            0,      1,      1,      0.5,     0.5,
+            0,      1,      0,      1,       0.5,
+            0,      0,      0,      1,       1,
 
         // Cima
             0,      1,      0,      0,      0,
@@ -102,8 +108,8 @@ function PrepareTriangleData() {
         // Baixo
             1,      0,      0,      0,      0,
             1,      0,      1,      0,      1,
-            0,      0,      1,      0,      1,
-            0,      0,      0,      0,      0,
+            0,      0,      1,      1,      1,
+            0,      0,      0,      1,      0,
     ];
 
     vertexIndex = [
@@ -147,7 +153,7 @@ function PrepareTriangleData() {
     );
 
     // Fazer bind à textura
-    GL.bindTexture(GL.TEXTURE_2D, boxTexture);
+    GL.bindTexture(GL.TEXTURE_2D, signTexture);
     // Fazer Clmap à boarda do eixo do U
     GL.texParameteri(GL.TEXTURE_2D, GL.TEXTURE_WRAP_S, GL.CLAMP_TO_EDGE);
     // Fazer Clamp à borda do eixo do V
@@ -157,14 +163,14 @@ function PrepareTriangleData() {
     GL.texParameteri(GL.TEXTURE_2D, GL.TEXTURE_MIN_FILTER, GL.LINEAR);
     GL.texParameteri(GL.TEXTURE_2D, GL.TEXTURE_MAG_FILTER, GL.LINEAR);
 
-    // passar imagem que está no documento
+    // Desafio 1 - mudar a imagem para a do desafio
     GL.texImage2D(
         GL.TEXTURE_2D,  // Tipo da Textura
         0,              // Detalhe da imagem (default 0)
         GL.RGBA,        // Tipo de imagem
         GL.RGBA,        // Tipo de textura que vai ser aplicada à imagem
         GL.UNSIGNED_BYTE,   // Tipo de valores da textura
-        document.getElementById('boxImage') // imagem que deve ser passada para o sampler
+        document.getElementById('signImage') // imagem que deve ser passada para o sampler
     );
 }
 
