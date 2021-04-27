@@ -9,7 +9,7 @@ renderer.setSize(window.innerWidth - 15, window.innerHeight - 15);
 document.body.appendChild(renderer.domElement);
 
 var geometria = new THREE.BoxGeometry(1,1,1);
-var material = new THREE.MeshBasicMaterial({color: 0xff0000});
+var material = new THREE.MeshBasicMaterial({color : 0xff0000});
 var cubo = new THREE.Mesh(geometria, material);
 
 var cuboCoordRotation;
@@ -37,6 +37,11 @@ document.addEventListener('keydown', ev =>{
 
     if (ev.keyCode == 68)
         coords.x += velocidadeAndar;
+
+    // Desafio 1
+    if (ev.keyCode == 32) {
+        novoCubo();
+    }
 
     camaraAndar = coords;
 });
@@ -81,4 +86,16 @@ function update() {
     camaraAndar = {x:0, y:0, z:0};
     renderer.render(cena, camara);
     requestAnimationFrame(update);
+}
+
+// Desafio 1
+function novoCubo() {
+    var novaCor = new THREE.Color(0xffffff);
+    novaCor.setHex(Math.random() * 0xffffff);
+    var novoMat = new THREE.MeshBasicMaterial({color : novaCor});
+    var novoCubo = new THREE.Mesh(geometria, novoMat);
+    novoCubo.translateX(THREE.Math.randFloat(-6,6));
+    novoCubo.translateY(THREE.Math.randFloat(-6,6));
+    novoCubo.translateZ(THREE.Math.randFloat(-10,3));
+    cena.add(novoCubo);
 }
