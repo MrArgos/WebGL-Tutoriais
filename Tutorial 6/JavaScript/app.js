@@ -40,7 +40,7 @@ document.addEventListener('keydown', ev =>{
 
     // Desafio 1
     if (ev.keyCode == 32)
-        novoCubo();
+        criarNovoCubo();
 
     camaraAndar = coords;
 });
@@ -67,6 +67,9 @@ document.addEventListener('keyup', ev =>{
 function Start() {
     cena.add(cubo);
     camara.position.z = 6;
+
+    bonecoDeNeve(); //Desafio 2
+
     requestAnimationFrame(update);
 }
 
@@ -88,7 +91,7 @@ function update() {
 }
 
 // Desafio 1
-function novoCubo() {
+function criarNovoCubo() {
     var novaCor = new THREE.Color(0xffffff);
     novaCor.setHex(Math.random() * 0xffffff);
     var novoMat = new THREE.MeshBasicMaterial({color : novaCor});
@@ -97,4 +100,43 @@ function novoCubo() {
     novoCubo.translateY(THREE.Math.randFloat(-6,6));
     novoCubo.translateZ(THREE.Math.randFloat(-10,3));
     cena.add(novoCubo);
+}
+
+// Desafio 2
+function bonecoDeNeve() {
+    var matBranco = new THREE.MeshBasicMaterial({color : 0xffffff});
+    var matVermelho = new THREE.MeshBasicMaterial({color : 0xff0000});
+    var matPreto = new THREE.MeshBasicMaterial({color : 0x000000});
+
+    var geoCabeca = new THREE.SphereGeometry(0.4, 40, 40);
+    var cabeca = new THREE.Mesh(geoCabeca, matBranco);
+    cabeca.translateX(-3);
+    cabeca.translateY(1);
+    cena.add(cabeca);
+
+
+    var geoCorpo = new THREE.SphereGeometry(0.8, 40, 40);
+    var corpo = new THREE.Mesh(geoCorpo, matBranco);
+    corpo.translateX(-3);
+    corpo.translateY(-0.18);
+    cena.add(corpo);
+
+    var geoOlho = new THREE.SphereGeometry(0.07, 40, 40);
+    var olhoEsq = new THREE.Mesh(geoOlho, matPreto);
+    olhoEsq.translateX(-3);
+    olhoEsq.translateY(1);
+    olhoEsq.translateZ(0.4);
+    cena.add(olhoEsq);
+
+    var olhoDir = olhoEsq.clone();
+    olhoDir.translateX(0.35);
+    cena.add(olhoDir);
+
+    //var geoBoca = new THREE.RingGeometry(0.08, 0.15, 15, 10, 3.14, 3.14);
+    var geoBoca = new THREE.TorusGeometry(0.11, 0.035, 16, 16, -3.14);
+    var boca = new THREE.Mesh(geoBoca, matVermelho);
+    boca.translateX(-2.8);
+    boca.translateY(0.87);
+    boca.translateZ(0.45);
+    cena.add(boca);
 }
