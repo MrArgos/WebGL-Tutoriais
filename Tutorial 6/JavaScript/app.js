@@ -39,9 +39,8 @@ document.addEventListener('keydown', ev =>{
         coords.x += velocidadeAndar;
 
     // Desafio 1
-    if (ev.keyCode == 32) {
+    if (ev.keyCode == 32)
         novoCubo();
-    }
 
     camaraAndar = coords;
 });
