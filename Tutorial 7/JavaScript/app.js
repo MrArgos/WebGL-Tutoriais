@@ -117,6 +117,10 @@ function update() {
         camara.position.z += camaraAndar.z;
     }
 
+    if (mixerAnimacao) {
+        mixerAnimacao.update(relogio.getDelta());
+    }
+
     camaraAndar = {x:0, y:0, z:0};
     renderer.render(cena, camara);
     requestAnimationFrame(update);
