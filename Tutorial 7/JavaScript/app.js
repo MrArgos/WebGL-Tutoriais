@@ -15,6 +15,7 @@ var objetoImportado;
 var mixerAnimacao;
 var relogio = new THREE.Clock();
 var importer = new THREE.FBXLoader();
+var luzObjeto;
 
 importer.load('./Objetos/Samba Dancing.fbx', function (object) {
 
@@ -75,13 +76,11 @@ function Start() {
     light.position.x = 5;
     light.position.z = 10;
 
-    // TODO
-    // Desafio 3 - apontar luz para objeto
-    //light.lookAt(objetoImportado);
     light.lookAt(cubo.position);
 
-    
     cena.add(light);
+
+    luzObjeto = light;
     camara.position.z = 6;
 
     requestAnimationFrame(update);
@@ -98,10 +97,15 @@ function update() {
         mixerAnimacao.update(relogio.getDelta());
     }
 
+    // Desafio 3 - apontar luz para objeto
+    if(objetoImportado != null)
+    {
+        luzObjeto.lookAt(objetoImportado.position);
+    }
+
     renderer.render(cena, camara);
     requestAnimationFrame(update);
 }
-
 
 function criarNovoCubo() {
     var novaCor = new THREE.Color(0xffffff);
